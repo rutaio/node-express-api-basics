@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Testavimo Pultas</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <h1>API testavimo pultas</h1>
+    <div class="container">
+      <div class="box">
+        <button id="get-students-btn">Gauti studentu duomenis</button>
+      </div>
+      <div class="box">
+        <label for="student-id">Gauti studenta pagal ID</label>
+        <input type="number" id="student-id" placeholder="Iveskite studento ID">
+        <button id="get-student-btn">Gauti studento duomenis</button>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <h2>Studentu sarasas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Vardas</th>
+            <th>Amzius</th>
+          </tr>
+        </thead>
+        <tbody id="students-list"></tbody>
+      </table>
+    </div>
+  </body>
+</html>
