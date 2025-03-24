@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 
 // API
 // Musu laikina duomenu baze:
-const students = [
+let students = [
   {
     id: 1,
     name: 'Ruta',
@@ -108,7 +108,13 @@ app.put('/api/students/:id', (req, res) => {
   res.json({ message: 'Studentas sekmingai atnaujintas!' });
 });
 
+// DELETE:
+app.delete('/api/students/:id', (req, res) => {
+  // filtruoju ta studenta pagal ID ir jo nebeliks, liks tik tie kurie yra ne jis:
+  students = students.filter((student) => student.id !== Number(req.params.id));
 
+  res.json({ message: 'Studentas istrintas!' });
+});
 
 // Listen - paskutinis failas, kuri paleidziame
 app.listen(PORT, () => {

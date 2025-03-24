@@ -62,7 +62,16 @@ document
     });
   });
 
-
+// delete:
+document
+  .getElementById('delete-student-btn')
+  .addEventListener('click', async () => {
+    const id = document.getElementById('delete-student-id').value;
+  // pasitikrinu ar veikia:  alert(id);
+    await fetch(`${API_URL}/${id}`, {
+      method: 'DELETE',
+    });
+  });
 
 function displayStudents(students) {
   const studentsLists = document.getElementById('students-list');
