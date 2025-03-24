@@ -9,6 +9,7 @@ document
     displayStudents(students);
   });
 
+// get:
 document
   .getElementById('get-student-btn')
   .addEventListener('click', async () => {
@@ -23,6 +24,45 @@ document
 
     displayStudents([student]);
   });
+
+// add:
+document
+  .getElementById('add-student-btn')
+  .addEventListener('click', async () => {
+    const name = document.getElementById('new-student-name').value;
+    const age = document.getElementById('new-student-age').value;
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: name,
+        age: age,
+      }),
+    });
+  });
+
+// edit:
+document
+  .getElementById('update-student-btn')
+  .addEventListener('click', async () => {
+    const id = document.getElementById('update-student-id').value;
+    const name = document.getElementById('update-student-name').value;
+    const age = document.getElementById('update-student-age').value;
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: name,
+        age: age,
+      }),
+    });
+  });
+
+
 
 function displayStudents(students) {
   const studentsLists = document.getElementById('students-list');
